@@ -20,7 +20,7 @@ with<br/>
 
 respectively. You should now be able to compile for desktop. Once you can we need to make changes to the main function and we need to break up SDLApp_run_MINUS_with_MINUS_callbacks__int into a function that contains the main loop and put the initialization code inside that function into the main function
 
-## Changes to Main and SDLApp_run_MINUS_with_MINUS_callbacks__intA
+## Changes to Main and SDLApp_run_MINUS_with_MINUS_callbacks__int
 compare this section of code starting on line 10699 in carp_wasm.c to main.c
 
 you should be able to just replace the main function with this block of code (after changing the nams of the Pointer functions mentioned above)
