@@ -1,9 +1,14 @@
 # Carp Very Simple Example Wasm
-It is trivial to compile simple Carp programs like Hello world to Wasm, but here I compile a small SDL2 example
+It is trivial to compile simple Carp programs like Hello world to Wasm, but here I compile a small SDL2 example with emscripten
 
 ![alt "carp on webassembly"](demo/demo.gif)
 
-## Necessary Changes to get The Sample Workign
+* main.c - Carp compiler c output with the changes necessary to get it to compile on Desktop
+* carp_wasm.c - This file has the changes that make it work with emscripten
+* sdl_example.carp - This is the copy and pasted code from the Very Simple Example on Carp's front page
+* webassembly - This folder contains all the webassembly already compiled if you just want to test it
+
+## Necessary Changes to get The Sample Working
 
 First, to get the SDL examples to compile, you need to replace some bad function names. Search and replace 
 `Pointer_prn__SDL_window`</br>
@@ -125,4 +130,15 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
+```
+
+## Compiling
+To compile with emscripten for yourself use the following: <br/>
+```
+emcc -Wno-everything -s USE_SDL=2 -s WASM=1 -o index.html carp_wasm.c
+```
+
+Then you can use a server like python's http server to serve on your local host
+```
+python3 -m http.server
 ```
