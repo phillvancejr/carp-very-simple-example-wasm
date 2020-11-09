@@ -23,6 +23,8 @@ respectively. You should now be able to compile for desktop. Once you can we nee
 ## Changes to Main and SDLApp_run_MINUS_with_MINUS_callbacks__intA
 compare this section of code starting on line 10699 in carp_wasm.c to main.c
 
+you should be able to just replace the main function with this block of code (after changing the nams of the Pointer functions mentioned above)
+
 ```
 #include <emscripten.h>
 // SDL_Main_Args
