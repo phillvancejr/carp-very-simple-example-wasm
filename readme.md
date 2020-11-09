@@ -1,8 +1,9 @@
 # Carp Very Simple Example Wasm
 It is trivial to compile simple Carp programs like Hello world to Wasm, but here I compile a small SDL2 example
 
+![alt "carp on webassembly"](demo/demo.gif)
 
-## Necessary changes
+## Necessary Changes to get The Sample Workign
 
 First, to get the SDL examples to compile, you need to replace some bad function names. Search and replace 
 `Pointer_prn__SDL_window`</br>
@@ -15,6 +16,8 @@ with<br/>
 respectively. You should now be able to compile for desktop. Once you can we need to make changes to the main function and we need to break up SDLApp_run_MINUS_with_MINUS_callbacks__int into a function that contains the main loop and put the initialization code inside that function into the main function
 
 ## Changes to Main and SDLApp_run_MINUS_with_MINUS_callbacks__intA
+compare this section of code starting on line 10699 in carp_wasm.c to main.c
+
 ```
 #include <emscripten.h>
 // SDL_Main_Args
