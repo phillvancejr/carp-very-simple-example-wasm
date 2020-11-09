@@ -5,16 +5,16 @@ It is trivial to compile simple Carp programs like Hello world to Wasm, but here
 ## Necessary changes
 
 First, to get the SDL examples to compile, you need to replace some bad function names. Search and replace 
-`Pointer_prn__SDL_window
-Pointer_prn__SDL_Render` 
+`Pointer_prn__SDL_window`
+`Pointer_prn__SDL_Render` 
 
-with 
-`Pointer_copy_SDL_window
-Pointer_copy_SDL_Render`
+with\n
+`Pointer_copy_SDL_window`
+`Pointer_copy_SDL_Render`
 
 respectively. You should now be able to compile for desktop. Once you can we need to make changes to the main function and we need to break up SDLApp_run_MINUS_with_MINUS_callbacks__int into a function that contains the main loop and put the initialization code inside that function into the main function
 
-## Changes to Main and SDLApp_run_MINUS_with_MINUS_callbacks__int
+## Changes to Main and SDLApp_run_MINUS_with_MINUS_callbacks__intA
 `
 #include <emscripten.h>
 // SDL_Main_Args
@@ -121,4 +121,5 @@ int main(int argc, char** argv) {
         emscripten_set_main_loop_arg(main_loop, &sdl_main_args, 0, 1);
     }
     return 0;
-}`
+}
+`
